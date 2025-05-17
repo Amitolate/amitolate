@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AmiTolate – Dein Produktguide</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4f8cff;
+      --secondary: #ff63c3;
+      --background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      --card-bg: #fff4fa;
+      --footer-grad: linear-gradient(90deg, #ff63c3 0%, #4f8cff 100%);
+      --header-grad: linear-gradient(100deg, #f6d365 0%, #4f8cff 90%);
+      --radius: 20px;
+    }
+    body {
+      background: var(--background);
+      font-family: 'Segoe UI', sans-serif;
+      color: #222;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    header {
+      background: var(--header-grad);
+      padding: 8px 0 10px 0;
+      text-align: center;
+      border-radius: 0 0 var(--radius) var(--radius);
+      position: relative;
+      box-shadow: 0 6px 26px #4f8cff15;
+      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+    .logo-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -16px;
+      margin-bottom: -6px;
+      width: 100%;
+    }
+    .logo-img {
+      max-width: 400px;
+      width: 92vw;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+    .language-switch {
+      position: absolute;
+      right: 22px;
+      top: 18px;
+      z-index: 10;
+    }
+    .language-switch button {
+      background: #fff8;
+      color: #232;
+      border: none;
+      border-radius: 14px;
+      margin-left: 8px;
+      padding: 5px 14px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 2px 10px #2222;
+      transition: background 0.18s, color 0.18s;
+    }
+    .language-switch button:hover {
+      background: #ffe1fa;
+      color: #ff63c3;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 18px 0 0 0;
+    }
+    .category {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: color 0.19s;
+      filter: drop-shadow(0 2px 8px #c7d2fe55);
+    }
+    .category i {
+      font-size: 2.2rem;
+      margin-bottom: 7px;
+      background: linear-gradient(135deg, #4f8cff 20%, #ff63c3 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .category:hover i {
+      transform: scale(1.13) rotate(-7deg);
+      filter: drop-shadow(0 2px 18px #ff63c355);
+    }
+    .category:hover, .category:focus {
+      color: #ff63c3;
+    }
+    main {
+      max-width: 900px;
+      margin: 38px auto 0 auto;
+      padding: 0 18px;
+    }
+    section > h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-align: center;
+      margin-bottom: 23px;
+      background: linear-gradient(90deg, #4f8cff 0%, #ff63c3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-bottom: 44px;
+    }
+    .product-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 18px #ff63c340;
+      padding: 26px 17px 18px 17px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.22s, transform 0.19s;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #4f8cff44 40%, #ff63c344 100%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .product-card img {
+      max-width: 128px;
+      border-radius: 14px;
+      margin-bottom: 16px;
+      z-index: 2;
+      box-shadow: 0 3px 14px #4f8cff28;
+      border: 3px solid #fff6;
+    }
+    .product-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      z-index: 2;
+      text-align: center;
+      background: linear-gradient(90deg, #4f8cff 10%, #ff63c3 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .product-desc {
+      font-size: 1.01rem;
+      color: #3a3a3a;
+      margin-bottom: 15px;
+      text-align: center;
+      z-index: 2;
+    }
+    .product-link {
+      background: linear-gradient(90deg, #4f8cff 10%, #ff63c3 80%);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 30px;
+      border-radius: 10px;
+      font-weight: bold;
+      margin-top: auto;
+      font-size: 1.07rem;
+      box-shadow: 0 2px 9px #ff63c365;
+      transition: background 0.18s, box-shadow 0.18s, transform 0.16s;
+      position: relative;
+      z-index: 2;
+      letter-spacing: 0.5px;
+    }
+    .product-link:hover {
+      background: linear-gradient(90deg, #ff63c3 10%, #4f8cff 90%);
+      box-shadow: 0 5px 18px #4f8cff45;
+      transform: scale(1.06);
+    }
+    .newsletter-form, .contact-form {
+      background: #fff;
+      padding: 25px 22px 18px 22px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 14px #4f8cff29;
+      max-width: 420px;
+      margin: 28px auto 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .newsletter-form:before, .contact-form:before {
+      content: "";
+      position: absolute;
+      top: -18px;
+      left: -18px;
+      width: 65px;
+      height: 65px;
+      background: linear-gradient(135deg, #ff63c344 10%, #4f8cff33 80%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .newsletter-form label, .contact-form label {
+      font-size: 1.02rem;
+      font-weight: 600;
+      z-index: 2;
+    }
+    .newsletter-form input, .contact-form input, .contact-form textarea {
+      padding: 10px 13px;
+      border-radius: 8px;
+      border: 1px solid #dbeafe;
+      margin-bottom: 6px;
+      font-size: 1rem;
+      background: #f8fafc;
+      transition: border 0.2s;
+      z-index: 2;
+    }
+    .newsletter-form input:focus, .contact-form input:focus, .contact-form textarea:focus {
+      border: 1.5px solid var(--secondary);
+      outline: none;
+      background: #fff0f9;
+    }
+    .newsletter-form button, .contact-form button {
+      background: linear-gradient(90deg, #4f8cff 10%, #ff63c3 80%);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.16s, transform 0.13s;
+      margin-top: 3px;
+      box-shadow: 0 2px 9px #4f8cff38;
+      z-index: 2;
+    }
+    .newsletter-form button:hover, .contact-form button:hover {
+      background: linear-gradient(90deg, #ff63c3 20%, #4f8cff 80%);
+      transform: scale(1.05);
+    }
+    footer {
+      background: var(--footer-grad);
+      color: #fff;
+      text-align: center;
+      padding: 22px 0 15px 0;
+      margin-top: 44px;
+      border-radius: var(--radius) var(--radius) 0 0;
+      font-size: 1.08rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 -5px 16px #4f8cff18;
+    }
+    .social-links {
+      margin-bottom: 9px;
+    }
+    .social-links a {
+      color: #fff;
+      font-size: 1.5rem;
+      margin: 0 11px;
+      transition: color 0.22s, transform 0.13s;
+      text-decoration: none;
+      filter: drop-shadow(0 1px 10px #ff63c360);
+    }
+    .social-links a:hover {
+      color: #fffa64;
+      transform: scale(1.13) rotate(-6deg);
+      filter: drop-shadow(0 2px 16px #4f8cff66);
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 14px;
+      }
+      .products {
+        grid-template-columns: 1fr;
+      }
+      .language-switch {
+        position: static;
+        margin: 14px 0 0 0;
+        display: flex;
+        justify-content: center;
+      }
+      header {
+        min-height: 88px;
+        padding-bottom: 10px;
+      }
+      .logo-img {
+        max-width: 99vw;
+        margin-bottom: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-wrapper">
+      <img src="header.png" alt="AmiTolate Logo" class="logo-img">
+    </div>
+    <div class="language-switch">
+      <button onclick="setLang('de')">DE</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+  </header>
+  <nav>
+    <a class="category" href="#">
+      <i class="fa-solid fa-laptop"></i>
+      <span data-de="Technik" data-en="Tech">Technik</span>
+    </a>
+    <a class="category" href="#">
+      <i class="fa-solid fa-heart"></i>
+      <span data-de="Beauty" data-en="Beauty">Beauty</span>
+    </a>
+    <a class="category" href="#">
+      <i class="fa-solid fa-kitchen-set"></i>
+      <span data-de="Haushalt" data-en="Home">Haushalt</span>
+    </a>
+  </nav>
+  <main>
+    <section>
+      <h2 data-de="Meine Empfehlungen" data-en="Our Recommendations">Meine Empfehlungen</h2>
+      <div class="products">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=cover&w=300&q=80" alt="Laptop">
+          <div class="product-title" data-de="Modernes Laptop" data-en="Modern Laptop">Modernes Laptop</div>
+          <div class="product-desc" data-de="Leistungsstark und mobil – perfekt für unterwegs." data-en="Powerful and portable – perfect for on the go.">Leistungsstark und mobil – perfekt für unterwegs.</div>
+          <a class="product-link" href="https://www.amazon.de/?tag=deinaffiliateid" target="_blank" data-de="Zum Angebot" data-en="View Offer">Zum Angebot</a>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=cover&w=300&q=80" alt="Beauty-Set">
+          <div class="product-title" data-de="Beauty-Set" data-en="Beauty Set">Beauty-Set</div>
+          <div class="product-desc" data-de="Alles für dein Wohlfühlprogramm zuhause." data-en="Everything for your wellness at home.">Alles für dein Wohlfühlprogramm zuhause.</div>
+          <a class="product-link" href="https://www.amazon.de/?tag=deinaffiliateid" target="_blank" data-de="Zum Angebot" data-en="View Offer">Zum Angebot</a>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=cover&w=300&q=80" alt="Küchenset">
+          <div class="product-title" data-de="Küchen-Set" data-en="Kitchen Set">Küchen-Set</div>
+          <div class="product-desc" data-de="Praktisch & stylisch – für jeden Haushalt geeignet." data-en="Practical & stylish – suitable for every home.">Praktisch & stylisch – für jeden Haushalt geeignet.</div>
+          <a class="product-link" href="https://www.amazon.de/?tag=deinaffiliateid" target="_blank" data-de="Zum Angebot" data-en="View Offer">Zum Angebot</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <form class="newsletter-form" onsubmit="newsletterSuccess(event)">
+        <label data-de="Newsletter abonnieren:" data-en="Subscribe to our newsletter:">Newsletter abonnieren:</label>
+        <input type="email" required placeholder="E-Mail-Adresse" data-de-placeholder="E-Mail-Adresse" data-en-placeholder="Email address">
+        <button type="submit" data-de="Abonnieren" data-en="Subscribe">Abonnieren</button>
+      </form>
+    </section>
+
+    <section>
+      <form class="contact-form" onsubmit="contactSuccess(event)">
+        <label data-de="Kontaktformular:" data-en="Contact us:">Kontaktformular:</label>
+        <input type="text" required placeholder="Name" data-de-placeholder="Name" data-en-placeholder="Name">
+        <input type="email" required placeholder="E-Mail" data-de-placeholder="E-Mail" data-en-placeholder="Email">
+        <textarea required rows="3" placeholder="Deine Nachricht..." data-de-placeholder="Deine Nachricht..." data-en-placeholder="Your message..."></textarea>
+        <button type="submit" data-de="Senden" data-en="Send">Senden</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <div class="social-links">
+      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div>
+      &copy; <span id="year"></span> AmiTolate. <span data-de="Alle Rechte vorbehalten." data-en="All rights reserved.">Alle Rechte vorbehalten.</span>
+    </div>
+  </footer>
+  <script>
+    // Sprachen
+    const langTexts = document.querySelectorAll('[data-de],[data-en]');
+    const placeholders = document.querySelectorAll('[data-de-placeholder],[data-en-placeholder]');
+    let currentLang = 'de';
+    function setLang(lang) {
+      currentLang = lang;
+      langTexts.forEach(el => {
+        el.innerText = el.getAttribute(`data-${lang}`);
+      });
+      placeholders.forEach(el => {
+        el.placeholder = el.getAttribute(`data-${lang}-placeholder`);
+      });
+    }
+    // Jahr im Footer automatisch setzen
+    document.getElementById("year").innerText = new Date().getFullYear();
+
+    // Newsletter Erfolgsmeldung
+    function newsletterSuccess(e) {
+      e.preventDefault();
+      alert(currentLang === 'de' ? "Danke fürs Abonnieren!" : "Thank you for subscribing!");
+      e.target.reset();
+    }
+    // Kontakt Erfolgsmeldung
+    function contactSuccess(e) {
+      e.preventDefault();
+      alert(currentLang === 'de' ? "Nachricht gesendet! Wir melden uns bald." : "Message sent! We will get back to you soon.");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
