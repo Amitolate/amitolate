@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kleidung – AmiTolate</title>
+  <title>Kleidung – AmiTolate Spreadshop</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     :root {
@@ -68,8 +68,6 @@
       color: var(--pink);
       margin-left: 4px;
     }
-
-    /* Navigation neu gestylt */
     nav {
       display: flex;
       justify-content: center;
@@ -122,108 +120,23 @@
       color: var(--mint-dark);
       border-color: var(--mint);
     }
-
     main {
-      max-width: 960px;
+      max-width: 1060px;
       margin: 0 auto;
-      padding: 0 18px 42px 18px;
+      padding: 0 8px 44px 8px;
     }
     h2 {
       font-size: 1.45rem;
       font-weight: 900;
       letter-spacing: 1px;
       margin: 35px 0 24px 0;
-      color: var(--black); /* Schwarz! */
-      text-align: center;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-      margin-bottom: 20px;
-    }
-    .product-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: 0 2px 12px #23272a13;
-      padding: 20px 14px 14px 14px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border: 1.5px solid #e7faf7;
-      transition: box-shadow 0.22s, transform 0.19s;
-    }
-    .product-card img {
-      max-width: 180px;
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 16px;
-      background: #f9fffe;
-      border: none; /* Kein mintfarbener Rahmen mehr! */
-    }
-    .product-title {
-      font-size: 1.09rem;
-      font-weight: 700;
-      margin-bottom: 7px;
-      text-align: center;
       color: var(--black);
-    }
-    .product-desc {
-      font-size: 0.97rem;
-      color: #444;
-      margin-bottom: 12px;
       text-align: center;
     }
-    .product-link {
-      background: var(--mint);
-      color: var(--black);
-      text-decoration: none;
-      padding: 7px 20px;
-      border-radius: 7px;
-      font-weight: 600;
-      font-size: 0.99rem;
-      margin-top: auto;
-      box-shadow: 0 2px 6px #23272a12;
-      transition: background 0.16s, color 0.16s, transform 0.14s;
-      display: inline-block;
-      border: none;
-    }
-    .product-link:hover {
-      background: var(--pink);
-      color: var(--white);
-      transform: scale(1.05);
-    }
-    footer {
-      background: var(--black);
-      color: var(--white);
-      text-align: center;
-      padding: 24px 0 14px 0;
-      border-radius: var(--radius) var(--radius) 0 0;
-      font-size: 1.08rem;
-      margin-top: 36px;
-      box-shadow: 0 -2px 14px #23272a15;
-    }
-    .social-links a {
-      color: var(--mint);
-      font-size: 1.5rem;
-      margin: 0 10px;
-      transition: color 0.16s, transform 0.12s;
-      text-decoration: none;
-    }
-    .social-links a:hover {
-      color: var(--pink);
-      transform: scale(1.1) rotate(-5deg);
-    }
-    @media (max-width: 900px) {
-      .headline {
-        font-size: 2.1rem;
-      }
-      .header-flex {
-        gap: 18px;
-      }
-      nav {
-        gap: 12px;
-      }
+    #myShop {
+      margin: 0 auto;
+      padding-bottom: 40px;
+      max-width: 1200px;
     }
     @media (max-width: 600px) {
       .header-flex {
@@ -239,9 +152,6 @@
       nav {
         flex-direction: column;
         gap: 8px;
-      }
-      .products {
-        grid-template-columns: 1fr;
       }
       .category {
         padding: 10px 12px;
@@ -264,45 +174,21 @@
     <a class="category active" href="kleidung.html"><i class="fa-solid fa-shirt"></i>Kleidung</a>
   </nav>
   <main>
-    <h2>Kleidung & Fashion</h2>
-    <div class="products">
-      <!-- Produkt 1: Babybody -->
-      <div class="product-card">
-        <img src="Screenshot 2025-05-17 233339.png" alt="AmiTolate Babybody">
-        <div class="product-title">AmiTolate Baby-Body</div>
-        <div class="product-desc">
-          Exklusiver Baby-Body mit niedlichem AmiTolate-Motiv.<br>
-          Angenehm weich, pflegeleicht und perfekt für die Kleinsten.
-        </div>
-        <a class="product-link" href="https://www.printful.com/de/product-template/88824405/253014a6a3b75a76599439f569d98886" target="_blank">
-          Jetzt ansehen & kaufen
-        </a>
-      </div>
-      <!-- Produkt 2: Unisex T-Shirt -->
-      <div class="product-card">
-        <img src="T-shirt.png" alt="AmiTolate Unisex T-Shirt">
-        <div class="product-title">AmiTolate Unisex T-Shirt</div>
-        <div class="product-desc">
-          Das neue AmiTolate Shirt – hochwertiger Stoff, trendiger Schnitt und ein echter Hingucker in Mint & Pink!
-        </div>
-        <a class="product-link" href="https://www.printful.com/de/dashboard/product-templates/88838462" target="_blank">
-          Jetzt ansehen & kaufen
-        </a>
-      </div>
+    <h2>Unser Spreadshop</h2>
+    <div id="myShop">
+      <a href="https://amitolate.myspreadshop.com">amitolate</a>
     </div>
+    <script>
+      var spread_shop_config = {
+          shopName: 'amitolate',
+          locale: 'de_DE',
+          prefix: 'https://amitolate.myspreadshop.com',
+          baseId: 'myShop'
+      };
+    </script>
+    <script type="text/javascript"
+            src="https://amitolate.myspreadshop.com/shopfiles/shopclient/shopclient.nocache.js">
+    </script>
   </main>
-  <footer>
-    <div class="social-links">
-      <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-    </div>
-    <div>
-      &copy; <span id="year"></span> AmiTolate. Alle Rechte vorbehalten.
-    </div>
-  </footer>
-  <script>
-    document.getElementById("year").innerText = new Date().getFullYear();
-  </script>
 </body>
 </html>

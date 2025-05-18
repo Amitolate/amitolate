@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AmiTolate – Startseite</title>
+  <title>AmiTolate – Kreative Mode & Technik</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     :root {
       --mint: #4ef1e2;
-      --mint-dark: #22cfc5;
       --pink: #ff63c3;
       --black: #23272a;
-      --banner: #20262c;
       --white: #fff;
       --radius: 18px;
-      --header-height: 170px;
+      --banner: #20262c;
     }
     body {
       background: var(--white);
@@ -23,17 +21,18 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     header {
       background: var(--banner);
-      height: var(--header-height);
       border-radius: 0 0 var(--radius) var(--radius);
       box-shadow: 0 3px 14px #0007;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       padding: 0;
+      height: 170px;
     }
     .header-flex {
       width: 100%;
@@ -68,185 +67,98 @@
       color: var(--pink);
       margin-left: 4px;
     }
-
-    /* Navigation wie Kleidung.html */
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 22px;
-      background: var(--white);
-      box-shadow: 0 1px 0 #eee;
-      padding: 18px 0 4px 0;
-      margin-bottom: 32px;
-      border-bottom: none;
-    }
-    .category {
-      text-decoration: none;
-      color: var(--black);
-      font-size: 1.11rem;
-      font-weight: 700;
-      padding: 10px 24px;
-      border-radius: 12px 12px 0 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border: 2px solid #e4e8eb;
-      background: var(--white);
-      box-shadow: 0 2px 7px #23272a09;
-      position: relative;
-      transition: background 0.19s, color 0.17s, border 0.14s;
-      margin-bottom: 0;
-    }
-    .category.active {
-      background: var(--mint);
-      color: var(--black);
-      border-color: var(--mint);
-      z-index: 1;
-    }
-    .category.active::after {
-      content: "";
-      display: block;
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: -10px;
-      height: 7px;
-      background: linear-gradient(90deg, var(--mint-dark), var(--mint));
-      border-radius: 6px;
-      box-shadow: 0 4px 14px #4ef1e26b;
-      opacity: 1;
-      z-index: 2;
-    }
-    .category:hover, .category:focus {
-      background: #f7fffd;
-      color: var(--mint-dark);
-      border-color: var(--mint);
-    }
-
     main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 18px 42px 18px;
-    }
-    h2 {
-      font-size: 1.45rem;
-      font-weight: 900;
-      letter-spacing: 1px;
-      margin: 35px 0 24px 0;
-      color: var(--black); /* Schwarz! */
-      text-align: center;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-      margin-bottom: 20px;
-    }
-    .product-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: 0 2px 12px #23272a13;
-      padding: 20px 14px 14px 14px;
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 1.5px solid #e7faf7;
-      transition: box-shadow 0.22s, transform 0.19s;
+      justify-content: center;
+      padding: 0 16px;
+      max-width: 700px;
+      margin: 0 auto;
     }
-    .product-card img {
-      max-width: 180px;
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 16px;
-      background: #f9fffe;
-      border: none; /* Kein mintfarbener Rahmen! */
-    }
-    .product-title {
-      font-size: 1.09rem;
-      font-weight: 700;
-      margin-bottom: 7px;
-      text-align: center;
+    .slogan {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-top: 48px;
+      margin-bottom: 18px;
       color: var(--black);
-    }
-    .product-desc {
-      font-size: 0.97rem;
-      color: #444;
-      margin-bottom: 12px;
       text-align: center;
     }
-    .product-link {
-      background: var(--mint);
-      color: var(--black);
-      text-decoration: none;
-      padding: 7px 20px;
-      border-radius: 7px;
-      font-weight: 600;
-      font-size: 0.99rem;
-      margin-top: auto;
-      box-shadow: 0 2px 6px #23272a12;
-      transition: background 0.16s, color 0.16s, transform 0.14s;
+    .about {
+      font-size: 1.15rem;
+      color: #343434;
+      text-align: center;
+      margin-bottom: 34px;
+      line-height: 1.6;
+    }
+    .shop-btn {
       display: inline-block;
+      font-size: 1.19rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--mint), var(--pink));
+      color: var(--black);
+      padding: 16px 50px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 22px #4ef1e266;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+      transition: background 0.16s, color 0.16s, transform 0.14s;
       border: none;
     }
-    .product-link:hover {
-      background: var(--pink);
+    .shop-btn:hover {
+      background: linear-gradient(90deg, var(--pink), var(--mint));
       color: var(--white);
-      transform: scale(1.05);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 36px #ff63c366;
+    }
+    .social-links {
+      margin-top: 22px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .social-links a {
+      color: var(--mint);
+      font-size: 2rem;
+      margin: 0 16px;
+      transition: color 0.17s, transform 0.13s;
+      text-decoration: none;
+      vertical-align: middle;
+    }
+    .social-links a:hover {
+      color: var(--pink);
+      transform: scale(1.15) rotate(-5deg);
     }
     footer {
       background: var(--black);
       color: var(--white);
       text-align: center;
-      padding: 24px 0 14px 0;
-      border-radius: var(--radius) var(--radius) 0 0;
+      padding: 20px 0 10px 0;
       font-size: 1.08rem;
-      margin-top: 36px;
+      border-radius: var(--radius) var(--radius) 0 0;
       box-shadow: 0 -2px 14px #23272a15;
+      margin-top: auto;
     }
-    .social-links a {
-      color: var(--mint);
-      font-size: 1.5rem;
-      margin: 0 10px;
-      transition: color 0.16s, transform 0.12s;
-      text-decoration: none;
-    }
-    .social-links a:hover {
-      color: var(--pink);
-      transform: scale(1.1) rotate(-5deg);
-    }
-    @media (max-width: 900px) {
-      .headline {
-        font-size: 2.1rem;
-      }
-      .header-flex {
-        gap: 18px;
-      }
-      nav {
-        gap: 12px;
-      }
-    }
-    @media (max-width: 600px) {
-      .header-flex {
-        gap: 8px;
+    @media (max-width: 700px) {
+      .slogan {
+        font-size: 1.3rem;
       }
       .headline {
-        font-size: 1.13rem;
+        font-size: 1.6rem;
       }
       .logo-img {
-        max-width: 90px;
-        margin-left: 7px;
+        max-width: 80px;
       }
-      nav {
-        flex-direction: column;
-        gap: 8px;
+      .shop-btn {
+        font-size: 1.02rem;
+        padding: 13px 30px;
       }
-      .products {
-        grid-template-columns: 1fr;
-      }
-      .category {
-        padding: 10px 12px;
-        font-size: 1.01rem;
-      }
+    }
+    @media (max-width: 420px) {
+      .header-flex { gap: 14px; }
+      .slogan { font-size: 1.07rem; }
+      .shop-btn { padding: 10px 18px; }
     }
   </style>
 </head>
@@ -259,43 +171,28 @@
       </span>
     </div>
   </header>
-  <nav>
-    <a class="category active" href="index.html"><i class="fa-solid fa-star"></i>Startseite</a>
-    <a class="category" href="kleidung.html"><i class="fa-solid fa-shirt"></i>Kleidung</a>
-  </nav>
   <main>
-    <h2>Neueste Artikel</h2>
-    <div class="products">
-      <!-- Produkt 1: Babybody -->
-      <div class="product-card">
-        <img src="Screenshot 2025-05-17 233339.png" alt="AmiTolate Babybody">
-        <div class="product-title">AmiTolate Baby-Body</div>
-        <div class="product-desc">
-          Exklusiver Baby-Body mit niedlichem AmiTolate-Motiv.<br>
-          Angenehm weich, pflegeleicht und perfekt für die Kleinsten.
-        </div>
-        <a class="product-link" href="kleidung.html">Mehr erfahren</a>
-      </div>
-      <!-- Produkt 2: Unisex T-Shirt -->
-      <div class="product-card">
-        <img src="T-shirt.png" alt="AmiTolate Unisex T-Shirt">
-        <div class="product-title">AmiTolate Unisex T-Shirt</div>
-        <div class="product-desc">
-          Das neue AmiTolate Shirt – hochwertiger Stoff, trendiger Schnitt und ein echter Hingucker in Mint & Pink!
-        </div>
-        <a class="product-link" href="kleidung.html">Mehr erfahren</a>
-      </div>
-         </div>
-  </main>
-  <footer>
+    <div class="slogan">
+      Kreative Mode trifft auf digitale Innovation.<br>
+      <span style="color:var(--mint)">Einzigartige Designs,</span> <span style="color:var(--pink)">für starke Persönlichkeiten!</span>
+    </div>
+    <div class="about">
+      AmiTolate verbindet stylische Fashion mit moderner Technik – für alle, die mehr wollen als nur Standard.<br>
+      Entdecke T-Shirts, Hoodies und Accessoires mit Charakter und Vision.<br>
+      <br>
+      <b>Jetzt entdecken und Teil der AmiTolate-Community werden!</b>
+    </div>
+    <a href="kleidung.html" class="shop-btn">
+      <i class="fa-solid fa-shirt"></i> Zum Shop
+    </a>
     <div class="social-links">
       <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
       <a href="https://www.twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
-    <div>
-      &copy; <span id="year"></span> AmiTolate. Alle Rechte vorbehalten.
-    </div>
+  </main>
+  <footer>
+    &copy; <span id="year"></span> AmiTolate. Alle Rechte vorbehalten.
   </footer>
   <script>
     document.getElementById("year").innerText = new Date().getFullYear();
