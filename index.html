@@ -3,388 +3,289 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AmiTolate – Dein Produktguide</title>
+  <title>AmiTolate – Startseite</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     :root {
-      --primary: #4f8cff;
-      --secondary: #ff63c3;
-      --background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-      --card-bg: #fff4fa;
-      --footer-grad: linear-gradient(90deg, #ff63c3 0%, #4f8cff 100%);
-      --header-grad: linear-gradient(100deg, #f6d365 0%, #4f8cff 90%);
-      --radius: 20px;
+      --mint: #4ef1e2;
+      --mint-dark: #22cfc5;
+      --pink: #ff63c3;
+      --black: #23272a;
+      --banner: #20262c;
+      --white: #fff;
+      --radius: 18px;
+      --header-height: 170px;
     }
     body {
-      background: var(--background);
-      font-family: 'Segoe UI', sans-serif;
-      color: #222;
+      background: var(--white);
+      color: var(--black);
+      font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       padding: 0;
       min-height: 100vh;
     }
     header {
-      background: var(--header-grad);
-      padding: 8px 0 10px 0;
-      text-align: center;
+      background: var(--banner);
+      height: var(--header-height);
       border-radius: 0 0 var(--radius) var(--radius);
+      box-shadow: 0 3px 14px #0007;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      box-shadow: 0 6px 26px #4f8cff15;
-      min-height: 110px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
+      padding: 0;
     }
-    .logo-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: -16px;
-      margin-bottom: -6px;
+    .header-flex {
       width: 100%;
+      max-width: 1100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
     }
     .logo-img {
-      max-width: 400px;
-      width: 92vw;
+      max-width: 160px;
       height: auto;
-      display: block;
-      margin: 0 auto;
-      border-radius: 0;
-      box-shadow: none;
+      margin-left: 16px;
       background: transparent;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 8px #23272a70);
     }
-    .language-switch {
-      position: absolute;
-      right: 22px;
-      top: 18px;
-      z-index: 10;
+    .headline {
+      font-size: 3.1rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      text-shadow: 0 2px 16px #0003;
     }
-    .language-switch button {
-      background: #fff8;
-      color: #232;
-      border: none;
-      border-radius: 14px;
-      margin-left: 8px;
-      padding: 5px 14px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 1rem;
-      box-shadow: 0 2px 10px #2222;
-      transition: background 0.18s, color 0.18s;
+    .headline .ami {
+      color: var(--mint);
     }
-    .language-switch button:hover {
-      background: #ffe1fa;
-      color: #ff63c3;
+    .headline .tolate {
+      color: var(--pink);
+      margin-left: 4px;
     }
+
+    /* Navigation wie Kleidung.html */
     nav {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      padding: 18px 0 0 0;
+      gap: 22px;
+      background: var(--white);
+      box-shadow: 0 1px 0 #eee;
+      padding: 18px 0 4px 0;
+      margin-bottom: 32px;
+      border-bottom: none;
     }
     .category {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-decoration: none;
-      color: var(--primary);
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: color 0.19s;
-      filter: drop-shadow(0 2px 8px #c7d2fe55);
+      color: var(--black);
+      font-size: 1.11rem;
+      font-weight: 700;
+      padding: 10px 24px;
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid #e4e8eb;
+      background: var(--white);
+      box-shadow: 0 2px 7px #23272a09;
+      position: relative;
+      transition: background 0.19s, color 0.17s, border 0.14s;
+      margin-bottom: 0;
     }
-    .category i {
-      font-size: 2.2rem;
-      margin-bottom: 7px;
-      background: linear-gradient(135deg, #4f8cff 20%, #ff63c3 80%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      transition: transform 0.2s, filter 0.2s;
+    .category.active {
+      background: var(--mint);
+      color: var(--black);
+      border-color: var(--mint);
+      z-index: 1;
     }
-    .category:hover i {
-      transform: scale(1.13) rotate(-7deg);
-      filter: drop-shadow(0 2px 18px #ff63c355);
+    .category.active::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: -10px;
+      height: 7px;
+      background: linear-gradient(90deg, var(--mint-dark), var(--mint));
+      border-radius: 6px;
+      box-shadow: 0 4px 14px #4ef1e26b;
+      opacity: 1;
+      z-index: 2;
     }
     .category:hover, .category:focus {
-      color: #ff63c3;
+      background: #f7fffd;
+      color: var(--mint-dark);
+      border-color: var(--mint);
     }
+
     main {
-      max-width: 900px;
-      margin: 38px auto 0 auto;
-      padding: 0 18px;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 18px 42px 18px;
     }
-    section > h2 {
-      font-size: 1.4rem;
-      font-weight: 800;
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 900;
       letter-spacing: 1px;
+      margin: 35px 0 24px 0;
+      color: var(--black); /* Schwarz! */
       text-align: center;
-      margin-bottom: 23px;
-      background: linear-gradient(90deg, #4f8cff 0%, #ff63c3 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 28px;
-      margin-bottom: 44px;
+      margin-bottom: 20px;
     }
     .product-card {
-      background: var(--card-bg);
+      background: var(--white);
       border-radius: var(--radius);
-      box-shadow: 0 4px 18px #ff63c340;
-      padding: 26px 17px 18px 17px;
+      box-shadow: 0 2px 12px #23272a13;
+      padding: 20px 14px 14px 14px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      border: 1.5px solid #e7faf7;
       transition: box-shadow 0.22s, transform 0.19s;
-      position: relative;
-      overflow: hidden;
-    }
-    .product-card:after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      right: -10px;
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, #4f8cff44 40%, #ff63c344 100%);
-      border-radius: 50%;
-      z-index: 0;
     }
     .product-card img {
-      max-width: 128px;
-      border-radius: 14px;
+      max-width: 180px;
+      width: 100%;
+      border-radius: 12px;
       margin-bottom: 16px;
-      z-index: 2;
-      box-shadow: 0 3px 14px #4f8cff28;
-      border: 3px solid #fff6;
+      background: #f9fffe;
+      border: none; /* Kein mintfarbener Rahmen! */
     }
     .product-title {
-      font-size: 1.18rem;
+      font-size: 1.09rem;
       font-weight: 700;
-      margin-bottom: 8px;
-      z-index: 2;
+      margin-bottom: 7px;
       text-align: center;
-      background: linear-gradient(90deg, #4f8cff 10%, #ff63c3 80%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--black);
     }
     .product-desc {
-      font-size: 1.01rem;
-      color: #3a3a3a;
-      margin-bottom: 15px;
+      font-size: 0.97rem;
+      color: #444;
+      margin-bottom: 12px;
       text-align: center;
-      z-index: 2;
     }
     .product-link {
-      background: linear-gradient(90deg, #4f8cff 10%, #ff63c3 80%);
-      color: #fff;
+      background: var(--mint);
+      color: var(--black);
       text-decoration: none;
-      padding: 10px 30px;
-      border-radius: 10px;
-      font-weight: bold;
+      padding: 7px 20px;
+      border-radius: 7px;
+      font-weight: 600;
+      font-size: 0.99rem;
       margin-top: auto;
-      font-size: 1.07rem;
-      box-shadow: 0 2px 9px #ff63c365;
-      transition: background 0.18s, box-shadow 0.18s, transform 0.16s;
-      position: relative;
-      z-index: 2;
-      letter-spacing: 0.5px;
+      box-shadow: 0 2px 6px #23272a12;
+      transition: background 0.16s, color 0.16s, transform 0.14s;
+      display: inline-block;
+      border: none;
     }
     .product-link:hover {
-      background: linear-gradient(90deg, #ff63c3 10%, #4f8cff 90%);
-      box-shadow: 0 5px 18px #4f8cff45;
-      transform: scale(1.06);
-    }
-    .newsletter-form, .contact-form {
-      background: #fff;
-      padding: 25px 22px 18px 22px;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 14px #4f8cff29;
-      max-width: 420px;
-      margin: 28px auto 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-    .newsletter-form:before, .contact-form:before {
-      content: "";
-      position: absolute;
-      top: -18px;
-      left: -18px;
-      width: 65px;
-      height: 65px;
-      background: linear-gradient(135deg, #ff63c344 10%, #4f8cff33 80%);
-      border-radius: 50%;
-      z-index: 0;
-    }
-    .newsletter-form label, .contact-form label {
-      font-size: 1.02rem;
-      font-weight: 600;
-      z-index: 2;
-    }
-    .newsletter-form input, .contact-form input, .contact-form textarea {
-      padding: 10px 13px;
-      border-radius: 8px;
-      border: 1px solid #dbeafe;
-      margin-bottom: 6px;
-      font-size: 1rem;
-      background: #f8fafc;
-      transition: border 0.2s;
-      z-index: 2;
-    }
-    .newsletter-form input:focus, .contact-form input:focus, .contact-form textarea:focus {
-      border: 1.5px solid var(--secondary);
-      outline: none;
-      background: #fff0f9;
-    }
-    .newsletter-form button, .contact-form button {
-      background: linear-gradient(90deg, #4f8cff 10%, #ff63c3 80%);
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 10px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.16s, transform 0.13s;
-      margin-top: 3px;
-      box-shadow: 0 2px 9px #4f8cff38;
-      z-index: 2;
-    }
-    .newsletter-form button:hover, .contact-form button:hover {
-      background: linear-gradient(90deg, #ff63c3 20%, #4f8cff 80%);
+      background: var(--pink);
+      color: var(--white);
       transform: scale(1.05);
     }
     footer {
-      background: var(--footer-grad);
-      color: #fff;
+      background: var(--black);
+      color: var(--white);
       text-align: center;
-      padding: 22px 0 15px 0;
-      margin-top: 44px;
+      padding: 24px 0 14px 0;
       border-radius: var(--radius) var(--radius) 0 0;
       font-size: 1.08rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 -5px 16px #4f8cff18;
-    }
-    .social-links {
-      margin-bottom: 9px;
+      margin-top: 36px;
+      box-shadow: 0 -2px 14px #23272a15;
     }
     .social-links a {
-      color: #fff;
+      color: var(--mint);
       font-size: 1.5rem;
-      margin: 0 11px;
-      transition: color 0.22s, transform 0.13s;
+      margin: 0 10px;
+      transition: color 0.16s, transform 0.12s;
       text-decoration: none;
-      filter: drop-shadow(0 1px 10px #ff63c360);
     }
     .social-links a:hover {
-      color: #fffa64;
-      transform: scale(1.13) rotate(-6deg);
-      filter: drop-shadow(0 2px 16px #4f8cff66);
+      color: var(--pink);
+      transform: scale(1.1) rotate(-5deg);
+    }
+    @media (max-width: 900px) {
+      .headline {
+        font-size: 2.1rem;
+      }
+      .header-flex {
+        gap: 18px;
+      }
+      nav {
+        gap: 12px;
+      }
     }
     @media (max-width: 600px) {
+      .header-flex {
+        gap: 8px;
+      }
+      .headline {
+        font-size: 1.13rem;
+      }
+      .logo-img {
+        max-width: 90px;
+        margin-left: 7px;
+      }
       nav {
         flex-direction: column;
-        gap: 14px;
+        gap: 8px;
       }
       .products {
         grid-template-columns: 1fr;
       }
-      .language-switch {
-        position: static;
-        margin: 14px 0 0 0;
-        display: flex;
-        justify-content: center;
-      }
-      header {
-        min-height: 88px;
-        padding-bottom: 10px;
-      }
-      .logo-img {
-        max-width: 99vw;
-        margin-bottom: 2px;
+      .category {
+        padding: 10px 12px;
+        font-size: 1.01rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-wrapper">
-      <img src="header.png" alt="AmiTolate Logo" class="logo-img">
-    </div>
-    <div class="language-switch">
-      <button onclick="setLang('de')">DE</button>
-      <button onclick="setLang('en')">EN</button>
+    <div class="header-flex">
+      <img src="amitolate-logo.png" alt="AmiTolate Logo" class="logo-img">
+      <span class="headline">
+        <span class="ami">Ami</span><span class="tolate">Tolate</span>
+      </span>
     </div>
   </header>
   <nav>
-  <a class="category" href="kleidung.html">
-    <i class="fa-solid fa-shirt"></i>
-    <span data-de="Kleidung" data-en="Clothing">Kleidung</span>
-  </a>
-  <a class="category" href="#">
-    <i class="fa-solid fa-laptop"></i>
-    <span data-de="Technik" data-en="Tech">Technik</span>
-  </a>
-  <a class="category" href="#">
-    <i class="fa-solid fa-heart"></i>
-    <span data-de="Beauty" data-en="Beauty">Beauty</span>
-  </a>
-  <a class="category" href="#">
-    <i class="fa-solid fa-kitchen-set"></i>
-    <span data-de="Haushalt" data-en="Home">Haushalt</span>
-  </a>
-</nav>
+    <a class="category active" href="index.html"><i class="fa-solid fa-star"></i>Startseite</a>
+    <a class="category" href="kleidung.html"><i class="fa-solid fa-shirt"></i>Kleidung</a>
+  </nav>
   <main>
-    <section>
-      <h2 data-de="Meine Empfehlungen" data-en="Our Recommendations">Meine Empfehlungen</h2>
-      <div class="products">
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=cover&w=300&q=80" alt="Laptop">
-          <div class="product-title" data-de="Modernes Laptop" data-en="Modern Laptop">Modernes Laptop</div>
-          <div class="product-desc" data-de="Leistungsstark und mobil – perfekt für unterwegs." data-en="Powerful and portable – perfect for on the go.">Leistungsstark und mobil – perfekt für unterwegs.</div>
-          <a class="product-link" href="https://www.amazon.de/?tag=deinaffiliateid" target="_blank" data-de="Zum Angebot" data-en="View Offer">Zum Angebot</a>
+    <h2>Neueste Artikel</h2>
+    <div class="products">
+      <!-- Produkt 1: Babybody -->
+      <div class="product-card">
+        <img src="Screenshot 2025-05-17 233339.png" alt="AmiTolate Babybody">
+        <div class="product-title">AmiTolate Baby-Body</div>
+        <div class="product-desc">
+          Exklusiver Baby-Body mit niedlichem AmiTolate-Motiv.<br>
+          Angenehm weich, pflegeleicht und perfekt für die Kleinsten.
         </div>
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=cover&w=300&q=80" alt="Beauty-Set">
-          <div class="product-title" data-de="Beauty-Set" data-en="Beauty Set">Beauty-Set</div>
-          <div class="product-desc" data-de="Alles für dein Wohlfühlprogramm zuhause." data-en="Everything for your wellness at home.">Alles für dein Wohlfühlprogramm zuhause.</div>
-          <a class="product-link" href="https://www.amazon.de/?tag=deinaffiliateid" target="_blank" data-de="Zum Angebot" data-en="View Offer">Zum Angebot</a>
-        </div>
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=cover&w=300&q=80" alt="Küchenset">
-          <div class="product-title" data-de="Küchen-Set" data-en="Kitchen Set">Küchen-Set</div>
-          <div class="product-desc" data-de="Praktisch & stylisch – für jeden Haushalt geeignet." data-en="Practical & stylish – suitable for every home.">Praktisch & stylisch – für jeden Haushalt geeignet.</div>
-          <a class="product-link" href="https://www.amazon.de/?tag=deinaffiliateid" target="_blank" data-de="Zum Angebot" data-en="View Offer">Zum Angebot</a>
-        </div>
+        <a class="product-link" href="kleidung.html">Mehr erfahren</a>
       </div>
-    </section>
-
-    <section>
-      <form class="newsletter-form" onsubmit="newsletterSuccess(event)">
-        <label data-de="Newsletter abonnieren:" data-en="Subscribe to our newsletter:">Newsletter abonnieren:</label>
-        <input type="email" required placeholder="E-Mail-Adresse" data-de-placeholder="E-Mail-Adresse" data-en-placeholder="Email address">
-        <button type="submit" data-de="Abonnieren" data-en="Subscribe">Abonnieren</button>
-      </form>
-    </section>
-
-    <section>
-      <form class="contact-form" onsubmit="contactSuccess(event)">
-        <label data-de="Kontaktformular:" data-en="Contact us:">Kontaktformular:</label>
-        <input type="text" required placeholder="Name" data-de-placeholder="Name" data-en-placeholder="Name">
-        <input type="email" required placeholder="E-Mail" data-de-placeholder="E-Mail" data-en-placeholder="Email">
-        <textarea required rows="3" placeholder="Deine Nachricht..." data-de-placeholder="Deine Nachricht..." data-en-placeholder="Your message..."></textarea>
-        <button type="submit" data-de="Senden" data-en="Send">Senden</button>
-      </form>
-    </section>
+      <!-- Produkt 2: Unisex T-Shirt -->
+      <div class="product-card">
+        <img src="T-shirt.png" alt="AmiTolate Unisex T-Shirt">
+        <div class="product-title">AmiTolate Unisex T-Shirt</div>
+        <div class="product-desc">
+          Das neue AmiTolate Shirt – hochwertiger Stoff, trendiger Schnitt und ein echter Hingucker in Mint & Pink!
+        </div>
+        <a class="product-link" href="kleidung.html">Mehr erfahren</a>
+      </div>
+         </div>
   </main>
   <footer>
     <div class="social-links">
@@ -393,38 +294,11 @@
       <a href="https://www.twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
     <div>
-      &copy; <span id="year"></span> AmiTolate. <span data-de="Alle Rechte vorbehalten." data-en="All rights reserved.">Alle Rechte vorbehalten.</span>
+      &copy; <span id="year"></span> AmiTolate. Alle Rechte vorbehalten.
     </div>
   </footer>
   <script>
-    // Sprachen
-    const langTexts = document.querySelectorAll('[data-de],[data-en]');
-    const placeholders = document.querySelectorAll('[data-de-placeholder],[data-en-placeholder]');
-    let currentLang = 'de';
-    function setLang(lang) {
-      currentLang = lang;
-      langTexts.forEach(el => {
-        el.innerText = el.getAttribute(`data-${lang}`);
-      });
-      placeholders.forEach(el => {
-        el.placeholder = el.getAttribute(`data-${lang}-placeholder`);
-      });
-    }
-    // Jahr im Footer automatisch setzen
     document.getElementById("year").innerText = new Date().getFullYear();
-
-    // Newsletter Erfolgsmeldung
-    function newsletterSuccess(e) {
-      e.preventDefault();
-      alert(currentLang === 'de' ? "Danke fürs Abonnieren!" : "Thank you for subscribing!");
-      e.target.reset();
-    }
-    // Kontakt Erfolgsmeldung
-    function contactSuccess(e) {
-      e.preventDefault();
-      alert(currentLang === 'de' ? "Nachricht gesendet! Wir melden uns bald." : "Message sent! We will get back to you soon.");
-      e.target.reset();
-    }
   </script>
 </body>
 </html>
